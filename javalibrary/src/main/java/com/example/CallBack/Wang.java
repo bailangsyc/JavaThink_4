@@ -6,7 +6,6 @@ import com.example.CallBack.Li;
 /**
  *
  * 本案例用来学习java的回调
-
  * 所谓回调：就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法，
  * 具体参照博客：http://blog.csdn.net/c_z_w/article/details/52040811
  *
