@@ -34,7 +34,6 @@ public class Wang implements CallBack {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				//调用小李中的方法
 				li.excuteMessage(Wang.this, question);
 
@@ -47,7 +46,6 @@ public class Wang implements CallBack {
 	}
 
 	private void play() {
-		// TODO Auto-generated method stub
 		System.out.println("小李正在解决问题，我要去逛街");
 	}
 
