@@ -1,8 +1,8 @@
 package com.example.CallBack;
 /**
- * »Øµ÷½Ó¿Ú
+ * å›è°ƒæ¥å£
  * @author shao
- *result Ğ¡ÀîÖªµÀ´ğ°¸ºó µ÷ÓÃ´Ë·½·¨Í¨ÖªĞ¡Íõ
+ *result å°æçŸ¥é“ç­”æ¡ˆå è°ƒç”¨æ­¤æ–¹æ³•é€šçŸ¥å°ç‹
  */
 public interface CallBack {
 	public void sovle(String result);
