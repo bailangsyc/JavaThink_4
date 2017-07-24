@@ -2,7 +2,7 @@ package interfaces;
 
 import java.util.Random;
 
-import sun.rmi.runtime.Log;
+
 
 /**
  * @ClassName [interfaces].

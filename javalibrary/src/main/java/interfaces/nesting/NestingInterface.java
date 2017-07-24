@@ -1,9 +1,5 @@
 package interfaces.nesting;
 
-import com.sun.javafx.logging.PulseLogger;
-import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
-
-import java.util.zip.Inflater;
 
 /**
  * @ClassName [interfaces.nesting].

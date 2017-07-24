@@ -2,10 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/CallBack.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Li.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Shao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Wang.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Zhu.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Li.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Shao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Wang.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javalibrary/src/main/java/com/example/CallBack/Zhu.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
