@@ -1,0 +1,9 @@
+package innerclass;
+
+/**
+ * Created by shao on 17-8-14.
+ */
+
+public interface Destination {
+    String readLabel();
+}

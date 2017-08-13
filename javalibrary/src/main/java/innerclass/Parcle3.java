@@ -49,6 +49,10 @@ public class Parcle3 {
         Content content = parcle3.new Content();
         Destination destination = parcle3.new Destination("三亚");
 
+        Parcel2 parcel2 = new Parcel2();
+
+
+
     }
 
 }
