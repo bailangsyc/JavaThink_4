@@ -8,7 +8,6 @@ import sun.swing.plaf.synth.DefaultSynthStyle;
  * PDestination是方法destination(String s)中的一个类，相当于时一个局部变量，所以在方法外时无法访问的
  * Created by root on 17-9-14.
  *
- *
  */
 
 public class Parcel5 {
