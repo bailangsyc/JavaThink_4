@@ -1,0 +1,216 @@
+
+相关命令：
+
+wodrpess安装目录（也就是默认的网站目录）：
+/home/wwwroot/default/wordpress
+
+下载备份的命令：
+scp -r root@116.196.113.163:/home/wwwroot/default/wordpress/wp-content/uploads/backwpup-7f0854-backups /root/桌面
+
+
+下载blog-inn主题到桌面：
+
+scp -r root@116.196.113.163:/home/wwwroot/default/wordpress/wp-content/themes/blog-inn /root/桌面
+
+上传blog-inn主题到服务器
+scp -r /root/桌面/blog-inn root@116.196.113.163:/home/wwwroot/default/wordpress/wp-content/themes/
+===========================================================================================
+/opt/tomcat8/apache-tomcat-8.0.12
+
+1.上传文件到远程服务器:
+博客：http://blog.csdn.net/u013698770/article/details/54929626
+
+上传文件work目录下wordpress-4.8.1-zh_CN.tar.gz 到服务器的home文件夹下 
+scp -r /work/wordpress-4.8.1-zh_CN.tar.gz root@116.196.113.163:/home
+scp -r /work/wordpress-4.8.1-zh_CN.tar.gz root@116.196.113.163:/home/wwwroot/default
+root：服务器账户名
+116.196.113.163 服务器ip地址
+
+下载服务器到本地
+scp -r 服务器帐号名@服务器的adress:文件路径 本地保存路径 #从服务器到本地
+
+实例代码：
+scp -r root@116.196.113.163:/home/wwwroot/default/wordpress/wp-content/themes/blog-inn/page_categories.php /root/桌面
+
+注意：
+	如果服务器重新安装系统后会出现   WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 的错误
+	解决方案 参考博客：http://www.jianshu.com/p/04328ed5970e
+	输入命令：ssh-keygen -R 服务器端的ip地址 
+	重新上传文件即可。
+
+
+
+
+
+2. linux中putty的粘贴 ： 鼠标中间
+    putty命令行中字体的大小可以设置http://www.xiazai.com/article31850
+
+
+3. linux 下移动文件到另一个文件夹的命令
+
+进入文件所在的文件夹 执行命令： mv filename 目标文件夹
+实例：mv a.txt /home 将当前文件夹下的a.txt 移动到home文件夹下
+
+删除文件的命令：
+	直接rm就可以了，不过要加两个参数-rf 即：rm -rf 目录名字
+	-r 就是向下递归，不管有多少级目录，一并删除
+	-f 就是直接强行删除，不作任何提示的意思
+
+	删除文件夹实例：
+	rm -rf /var/log/httpd/access
+	将会删除/var/log/httpd/access目录以及其下所有文件、文件夹
+
+
+	删除文件使用实例：
+	rm -f /var/log/httpd/access.log
+	将会强制删除/var/log/httpd/access.log这个文件
+
+4.ubuntu下访问远程服务器 
+   1.可以使用putty来登录
+   2.也可以使用系统自带的shell来登录
+	登录命令：ssh root@116.196.113.163 -p22 （22 端口号）然后输入密码即可
+注意：两者登录都是使用ssh来登录，都需要现在服务器和客户端安装和配置ssh服务，
+
+=====================================================================
+搭建博客：
+参考博客：
+http://blog.csdn.net/Jack_Xe/article/details/50388861
+
+1.根据博客搭建lnmp环境 （ 也就是安装mysql php nginx 三个软件） 
+	nginx php都安装在/local 
+2.上传WordPress安装包 到/home/wwwroot/default/ 
+  然后解压即可
+3.安装lrzsz
+4.安装Wordpress
+	可能会出现以下错误信息：
+	参考博客：http://blog.sina.com.cn/s/blog_1528cabf10102vqu5.html
+	4.1 访问wp-admin/install.php出错：数据库连接错误。您在wp-config.php文件中提供的数据库用户名和密码可能不正确  
+	  原因：如果是首次安装博客，可能就是没有创建名称为wordpress的数据库，只需要连接远程服务器，进入mysql，使用命令创建该数据库即可
+	4.2安装wordpress最后一步显示 抱歉，无法写入wp-config.php文件您可以手动创建wp-config.php文件
+	  原因：/home/wwwroot/default/ 中没有wp-config.php文件，默认只有wp-config-sample.php 文件
+	  解决方法：只需要将wp-config-sample.php复制一份，命名为wp-config.php，
+	  wp-config.php里边的需要修改具体内容就是网页上“抱歉，无法写入wp-config.php文件您可以手动创建wp-config.php文件”提示下方文本框中的内容
+5.申请域名 
+	云服务器域名解析设置：https://www.west.cn/faq/list.asp?unid=423
+	如何测试域名是否解析成功：https://jingyan.baidu.com/article/e6c8503c1785dde54f1a1888.html
+	   使用ping命令：ping www.shaoyance.com 如何下方出现对应ip，表示解析成功
+
+博客相关配置信息：
+
+	数据库名:wordpress
+	用户名：root
+	密码：6***
+	数据库主机：localhost
+	表前缀：wp_
+
+
+	个人博客
+	用户名：shaoyance
+	密码：BmoTht*@)&uXP2hlwALHX&4O
+进入wordpress后台：
+http://116.196.113.163/wordpress/wp-login.php
+
+注意：
+
+1。ftp上传文件时总是提示输入账户名和密码： 
+	参考博客：https://jingyan.baidu.com/article/d2b1d1026d46e95c7e37d400.html（亲测有效）
+	在wp_config.php 文件中加入下边的代码：
+	  define(“FS_METHOD”, “direct”);
+
+          define(“FS_CHMOD_DIR”, 0777);
+
+          define(“FS_CHMOD_FILE”, 0777);
+
+2.解决wordpress下载插件 安装失败 无法创建目录问题
+参考博客：https://www.2cto.com/kf/201702/594337.html（实测有效）
+网上说的都是修改权限，都不管用，主要是因为
+	想要下载插件的用户组为web用户组，用户名组名为 www(大家可能不太一样，如果是按照我之前的方式装lnmp环境的同学，就是www，可以在ngnix.conf中第一行查看，至于nginx.conf的位置就用locate nginx.conf搜索一下) ，而此时wordpress用户组为root，这样就不能创建目录了，
+
+解决方案： 进入default目录 输入：ls -l wordpress
+
+3.markdown插件的使用（wp-markdown插件）
+
+http://www.powerxing.com/wordpress-markdown-plugin/
+http://www.techweb.com.cn/network/system/2016-10-11/2407772.shtml
+
+4. 如果安装了许多主题，却不显示，
+参考博客：https://www.8dlive.com/post/474.html
+原因：因本版本配置的的php.ini有点问题，禁用掉了php默认函数scandir，从而导致出现此问题，开启php.ini中scandir函数即可。
+解决方法：
+1、找到php.ini的位置，如果你也是默认安装的话，路径应该是： /usr/local/php/etc/php.ini   
+2.搜索disable_functions 函数，将其中的scandir去掉，
+3.最后需要重启服务器
+
+
+
+5.主题安装路径
+/home/wwwroot/default/wordpress/wp-content/themes
+6.数据库路径
+  数据库的名字见配置文件wp-config.php中
+  wp-config.php的路径：/home/wwwroot/default/wordpress/wp-config.php
+  MySQL 目录 : /usr/local/mysql/
+  MySQL数据库所在目录：/usr/local/mysql/var/
+
+===========================================================================================================================
+wordpress的备份 
+
+使用BackWPup备份，目前无法使用自动备份功能，总是发送邮件失败，暂时手动每周备份一次
+
+备份文件放置在服务器上 路径：/home/wwwroot/default/wordpress/wp-content/uploads/backwpup-7f0854-backups/
+
+
+====================================================================================
+相关目录：（具体见参考博客http://blog.csdn.net/Jack_Xe/article/details/50388861）
+注：LNMP相关软件安装目录
+Nginx 目录: /usr/local/nginx/
+MySQL 目录 : /usr/local/mysql/
+MySQL数据库所在目录：/usr/local/mysql/var/
+MariaDB 目录 : /usr/local/mariadb/
+MariaDB数据库所在目录：/usr/local/mariadb/var/
+PHP目录 : /usr/local/php/
+PHPMyAdmin目录 : 0.9版为/home/wwwroot/phpmyadmin/ 1.0版为 /home/wwwroot/default/phpmyadmin/ 强烈建议将此目录重命名为其不容易猜到的名字。phpmyadmin可自己从官网下载新版替换。
+默认网站目录 : 0.9版为 /home/wwwroot/ 1.0版为 /home/wwwroot/default/
+Nginx日志目录：/home/wwwlogs/
+/root/vhost.sh添加的虚拟主机配置文件所在目录：/usr/local/nginx/conf/vhost/
+PureFtpd 目录：/usr/local/pureftpd/
+PureFtpd web管理目录： 0.9版为/home/wwwroot/default/ftp/ 1.0版为 /home/wwwroot/default/ftp/
+Proftpd 目录：/usr/local/proftpd/
+Redis 目录：/usr/local/redis/
+引用自：LNMP安装了哪些软件？安装目录在哪？
+
+=================================================
+域名实名认证后，此时域名只能解析成功，但是网站无法访问，
+此时可以通过命令行来 验证是否解析成功，如果使用 ping 域名  能够返回数据，说明已经解析成功
+
+这时在浏览器输入域名，会提示网站没有备案，无法访问
+
+当网站icp备案通过后，输入ip/wordpress 可以访问，在服务器主机上设置好域名解析后，
+在客户端浏览器输入域名后显示403 Forbidden nginx/1.10.2的错误，这是由于服务器没有绑定域名的缘故
+也就是将域名与自己wordpress网站目录绑定
+
+自己参考教程http://blog.csdn.net/Jack_Xe/article/details/50388861?readlog
+使用的是LNMP服务可以使用一键安装包来安装的，
+绑定域名的教程参考http://www.kwx.gd/PHPEnvironment/LNMP-Vhost.html
+自己网站的目录（网站的目录可以自定义，但是默认的就是wordpress的安装目录）
+
+自己wordpress的安装目录:/home/wwwroot/default/wordpress
+那么设置域名的默认目录就应该设置成wordpress安装目录
+设置主域名：www.yuming.com   二级域名（也就是提示输入的more domain)输入：yuming.com
+设置成功后，会提示
+Your domain:www.shaoyance.com
+Directory of www.shaoyance.com:/home/wwwroot/default/wordpress
+
+如果还是不能访问：再设置网站目录的访问权限 设置成755
+也就是将/home/wwwroot/default/wordpress/ 设置为755 
+
+这时输入域名（www.yuming.com）就可以访问自己的博客了,输入二级域名(yuming.com)也可访问，当然输入ip/wordpress 也可以访问。
+
+
+
+
+
+
+   
+
+
+

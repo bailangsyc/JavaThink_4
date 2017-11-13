@@ -1,0 +1,64 @@
+参考教程：https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743256916071d599b3aed534aaab22a0db6c4e07fd0000
+
+这篇教程写的很好，通俗易懂
+
+首先通过这篇教程，练习命令行操作git，理解熟悉git的原理，
+然后再通过android studio来操作git就会很容易（只不过是熟悉哪些按钮是执行什么操作罢了）
+
+
+================================================================
+	
+
+pwd命令，用于显示当前目录
+touch 文件名 touch命令可以创建一个文件（不局限于txt文件）
+
+列出隐藏的文件 ls -a 或者 ls -ah
+
+git常用命令：
+git init	把这个目录变成Git可以管理的仓库
+
+git status	查询当前仓库的状态
+
+git diff readme.txt 查询readme.txt 具体修改的内容
+
+git log 显示提交的历史  
+git log --pretty=oneline	提交历史（简化输出）
+
+cat readme.txt	查看readme.txt的内容
+==========================================================
+将一个文件放到git仓库需要两步，先add(添加到版本控制) 后commit（提交）
+git add readme.txt  添加readme.txt到版本控制
+git commit -m "wrote a readme file"  提交一个文件 -m 后边是提交的描述文字
+
+为什么Git添加文件需要add，commit一共两步呢？因为commit可以一次提交很多文件，所以你可以多次add不同的文件，比如：
+
+$ git add file1.txt
+$ git add file2.txt file3.txtMerge branch '暖气费支付修改没有加载动画的bug(赵蒙板的方法)' into 暖气费支付修改没有加载动画的bug
+
+# Conflicts:
+#	app/src/main/java/com/urthinker/trcbank/jxsh/activity/lifepay/PayHeatingCostActivity.java
+$ git commit -m "add 3 files."    //一次可以提交多个文件
+
+==============================================================
+回退到上一个版本：
+git reset --hard HEAD^ 还原到上一个版本
+git reset --hard HEAD^^  还原到上上一个版本
+HEAD^  表示上一个版本
+HEAD^^  上上个版本
+当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100
+
+=================================================================
+android studio 使用git总结
+
+需要总结的：
+使用as 
+	查看本地和远程仓库所有分支
+	分支之间的互相切换
+	创建本地分支
+	创建远程分支
+	本地分支与本地分支的合并
+	本地分支与远程分支的合并
+使用android studio创建远程仓库的分支：http://blog.csdn.net/hyr83960944/article/details/38145845
+
+
+
