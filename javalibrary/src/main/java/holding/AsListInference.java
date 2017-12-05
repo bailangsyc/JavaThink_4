@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * 11.3 添加一组元素
  * <p>
+ *
  * Arrays.asList()方法的限制是它对所产生的List的类型做出最理想的假设，
  * 而并没有注意到开发者对它赋予什么样的类型。这回引发一些问题。
  * Created by root on 17-11-3.
